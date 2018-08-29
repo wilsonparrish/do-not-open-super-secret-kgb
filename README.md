@@ -1,4 +1,4 @@
-# DO-NOT-OPEN(kgb-super-secret)
+# do-not-open-super-secret-kgb
 
 This project will identify car dealership customers who are WAY TOO EXCITED about their experience at McKaig Chevrolet Buick.  It identifies these OVERLY EXCITED CONSUMERS by looking for reviews that contain the most exclamation points because those are OBVIOUSLY SUSPICIOUS.
 
