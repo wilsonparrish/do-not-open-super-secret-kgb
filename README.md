@@ -19,7 +19,7 @@ npm test
 and the tool itself can be used with the command:
 
 ```bash
-node driver.js
+node demo.js
 ```
 
 ## ESLint
@@ -28,6 +28,6 @@ This project includes eslint, setup for a node environment with ES2105.  To run,
 
 ```bash
 .\node_modules\.bin\eslint .\driver.js
-.\node_modules\.bin\eslint .\scripts\scrapeReviews.js
-.\node_modules\.bin\eslint .\scripts\rankReviews.js
+.\node_modules\.bin\eslint .\scripts\scraper.js
+.\node_modules\.bin\eslint .\scripts\counter.js
 ```
