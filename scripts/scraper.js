@@ -43,7 +43,7 @@ module.exports.scrapeReviews = function (pageCount) {
 	}
 
 	// Scrape each requested page
-	urls.forEach(function(url){
+	urls.forEach(url => {
 		responses.push(getReviews(url));
 	});
 

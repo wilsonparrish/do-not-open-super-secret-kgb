@@ -4,15 +4,15 @@ const scraper = require(`../scripts/scraper`);
 const counter = require(`../scripts/counter.js`);
 
 // Full functionality tests
-describe(`ReviewCrawler.getMostPositiveReviews()`, function () {
-	it(`should return three reviews when called`, function () {
+describe(`ReviewCrawler.getMostPositiveReviews()`, () => {
+	it(`should return three reviews when called`, () => {
 
 		// Setup
 		let rc = new ReviewCrawler();
 
 		// Execute
 		rc.getMostPositiveReviews(1, false)
-			.then(function (result) {
+			.then(result => {
 
 				// Analyze
 				expect(result).to.have.lengthOf(3);
@@ -20,18 +20,18 @@ describe(`ReviewCrawler.getMostPositiveReviews()`, function () {
 	});
 });
 
-describe(`ReviewCrawler.getMostPositiveReviews()`, function () {
-	it(`should return the same reviews when called with the same arguments`, function () {
+describe(`ReviewCrawler.getMostPositiveReviews()`, () => {
+	it(`should return the same reviews when called with the same arguments`, () => {
 
 		// Setup
 		let rc = new ReviewCrawler();
 
 		// Execute
 		rc.getMostPositiveReviews(1, false)
-			.then(function (firstResult) {
+			.then(firstResult => {
 
 				rc.getMostPositiveReviews(1, false)
-			    .then(function (secondResult) {
+			    .then(secondResult => {
 
 						// Analyze
 						expect(firstResult[0].title).to.equal(secondResult[0].title);
@@ -43,13 +43,13 @@ describe(`ReviewCrawler.getMostPositiveReviews()`, function () {
 });
 
 // Scraper tests
-describe(`scraper.scrapeReviews()`, function () {
-	it(`should return title and content of reviews when called`, function () {
+describe(`scraper.scrapeReviews()`, () => {
+	it(`should return title and content of reviews when called`, () => {
 
 		// Setup
 		// Execute
 		scraper.scrapeReviews(1)
-			.then(function (result) {
+			.then(result => {
 
 				// Analyze
 				expect(result[0]).to.have.property(`title`);
@@ -60,13 +60,13 @@ describe(`scraper.scrapeReviews()`, function () {
 	});
 });
 
-describe(`scraper.scrapeReviews()`, function () {
-	it(`should return an empty array when called with no page numbers`, function () {
+describe(`scraper.scrapeReviews()`, () => {
+	it(`should return an empty array when called with no page numbers`, () => {
 
 		// Setup
 		// Execute
 		scraper.scrapeReviews()
-			.then(function (result) {
+			.then(result => {
 
 				// Analyze
 				expect(result).to.be.an(`array`).that.is.empty;
@@ -75,27 +75,27 @@ describe(`scraper.scrapeReviews()`, function () {
 });
 
 // Ranker tests
-describe(`counter.countExclamations()`, function () {
-	it(`should return an empty array when called with an empty array`, function () {
+describe(`counter.countExclamations()`, () => {
+	it(`should return an empty array when called with an empty array`, () => {
 
 		// Skip setup, Execute
 		let result = counter.countExclamations([])
 
-    // Analyze
-    expect(result).to.be.an(`array`).that.is.empty;	
+		// Analyze
+		expect(result).to.be.an(`array`).that.is.empty;	
 	});
 });
 
-describe(`counter.countExclamations()`, function () {
-	it(`should return an array on numbers representing the number of !'s in each string`, function () {
+describe(`counter.countExclamations()`, () => {
+	it(`should return an array on numbers representing the number of !'s in each string`, () => {
 
 		// Skip setup, Execute
 		let result = counter.countExclamations([{ content: `!some!random!words!here!` }, { content: `!   !      !` }, { content: `!` }, { content: ` ` }]);
 
-    // Analyze
-    expect(result[0]).to.equal(5);			
-    expect(result[1]).to.equal(3);			
-    expect(result[2]).to.equal(1);			
-    expect(result[3]).to.equal(0);			
+		// Analyze
+		expect(result[0]).to.equal(5);			
+		expect(result[1]).to.equal(3);			
+		expect(result[2]).to.equal(1);			
+		expect(result[3]).to.equal(0);			
 	});
 });
